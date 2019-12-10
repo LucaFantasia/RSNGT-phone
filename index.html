@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <html>
+        <title> RSNG</title>
+        <body style="background-color:#f2f2f2">
+            <style>
+                .button {
+                    border: 2px solid black;
+                }
+            </style>
+            <p><button class="button" style="height:23px" id="button" onclick="setNames()"></button><img src="" alt="test" align="top"></p>
+            <b><div style="font-size: 35px" id="test">Ready player one</div></b>
+            <script lang="Javascript">
+                var studentNames = [];
+                var studentDisplayed = [];
+                var count = 21;
+                document.getElementById("button").innerHTML = count;
+                setArrays();
+                function setArrays() {
+                    studentNames = ["Adriana","Allan","Luca","Myro","JJ","JM","Dinis",
+                    "Tilly","Laura","Carolina","Luna","Afonso","Cecilia",
+                    "Sofia F","Sofia G","Sebastion","Holly","Sandro","Tian","Miguel","Maria"];
+                 studentDisplayed = [false,false,false,false,false,false,false,false,false,false,
+                    false,false,false,false,false,false,false,false,false,false,false];
+                 count = studentNames.length;
+                document.getElementById("button").innerHTML = count;
+                }
+                function setNames() {
+                    do {
+                        var randomNumber = Math.floor(Math.random() * studentNames.length);
+                    } while (studentDisplayed[randomNumber] == true);
+                        studentDisplayed[randomNumber] = true;
+                        document.getElementById("test").innerHTML = studentNames[randomNumber];
+                        count--;
+                        document.getElementById("button").innerHTML = count;
+                        console.log(studentDisplayed)
+                        console.log(studentNames[randomNumber])
+                        console.log(count)
+                    if (count == 0) {
+                        setArrays();
+                        return;
+                        //document.getElementById("button").innerHTML = "Restart";
+                    }
+                }
+            </script>
+        </body>
+    </html>
