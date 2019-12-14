@@ -1,26 +1,53 @@
 <!DOCTYPE html>
     <html>
-        <title> RSNGT Phone</title>
+        <title> RSNGT</title>
         <body style="background-color:#f2f2f2">
             <style>
                 .button {
                     border: 2px solid black;
                 }
             </style>
-            <p><button class="button" style="height:150px width:200px" id="button" onclick="setNames()"></button><img src="https://raw.githubusercontent.com/LucaFantasia/RSNGT-phone/master/images/screenshot01.png" alt="test" align="top"></p>
-            <b><div style="font-size: 150px" id="test">Ready player one</div></b>
-            <script lang="Javascript">
+            <p>
+                <button class="button" style="height:23px" id="button" onclick="setNames()"></button>
+                <img src="screenshot02.png" alt="question-mark" align="top">
+                    <select style="height:23px" id = "myList">
+                        <option value = "10"selected>10</option>
+                        <option value = "9">9</option>
+                    </select>
+                    <img src="screenshot03.png" alt="question-mark" align="top">
+            </p>
+            <b><div style="font-size: 35px" id="test">Ready playerone</div></b>
+            <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/A0C9933E-5AE7-3147-B64F-A34FAE3134DD/main.js" charset="UTF-8"></script><script lang="Javascript">
                 var studentNames = [];
                 var studentDisplayed = [];
-                var count = 21;
+                var menu = document.getElementById("myList");
+                menu.addEventListener("change", generateData);
+                function generateData(event) {
+                    if (menu.value == '10') {
+                        setArrays10();
+                    } else if (menu.value == '9') {
+                        setArrays9();
+                    }
+                }
+                var count = 0 ;
                 document.getElementById("button").innerHTML = count;
-                setArrays();
-                function setArrays() {
+                generateData(event);
+                function setArrays10() {
                     studentNames = ["Adriana","Allan","Luca","Myro","JJ","JM","Dinis",
                     "Tilly","Laura","Carolina","Luna","Afonso","Cecilia",
                     "Sofia F","Sofia G","Sebastion","Holly","Sandro","Tian","Miguel","Maria"];
                  studentDisplayed = [false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false];
+                 count = studentNames.length;
+                document.getElementById("button").innerHTML = count;
+                }
+                function setArrays9() {
+                    studentNames = ["Luca","Elliot","Adam","Sam","Pedro","Guilherme","Bernado","Sarah",
+                    "Mariana","Daniela","Anais","Beatriz","Emily","Tarushi","Lauren",
+                    "Sofia C","Luisa","Kiana","Lena","Sofia M","Amelia","Sofia A","Catarina","Maria"];
+                 studentDisplayed = [false,false,false,false,false,false,false,false,
+                 false,false,false,false,false,
+                 false,false,false,false,false,false,false,false,false,false,false,];
                  count = studentNames.length;
                 document.getElementById("button").innerHTML = count;
                 }
@@ -36,9 +63,8 @@
                         console.log(studentNames[randomNumber])
                         console.log(count)
                     if (count == 0) {
-                        setArrays();
+                        generateData(event);
                         return;
-                        //document.getElementById("button").innerHTML = "Restart";
                     }
                 }
             </script>
