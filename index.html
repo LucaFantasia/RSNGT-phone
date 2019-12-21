@@ -1,23 +1,29 @@
 <!DOCTYPE html>
     <html>
-        <title> RSNGT Phone</title>
+        <title> RSNGT phone</title>
         <body style="background-color:#f2f2f2">
             <style>
-                .button {
-                    border: 2px solid black;
+                .height {
+                    height:23px
+                }
+                input[type=button] {
+                    width:35px;
+                    height:23px;
                 }
             </style>
-            <p>
-                <button class="button" style="height:23px" id="button" onclick="setNames()"></button>
-                <img src="https://raw.githubusercontent.com/LucaFantasia/RSNGT-phone/master/images/screenshot02.png" alt="question-mark" align="top">
-                    <select style="height:23px" id = "myList">
+            <table>
+                <tr>
+                    <td><input type="button" name="button1" class="search" id="button" onclick="setNames()"></td>
+                    <td><img src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/screenshot02.png" alt="question-mark" align="top"></td>
+                    <td><select style="height:23px" id = "myList">
                         <option value = "10"selected>10</option>
                         <option value = "9">9</option>
-                    </select>
-                    <img src="https://raw.githubusercontent.com/LucaFantasia/RSNGT-phone/master/images/screenshot03.png" alt="question-mark" align="top">
-            </p>
+                        </select></td>
+                    <td><img src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/screenshot03.png" alt="question-mark" align="top"></td>
+                </tr>
+            </table>       
             <b><div style="font-size: 35px" id="test">Ready playerone</div></b>
-            <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/A0C9933E-5AE7-3147-B64F-A34FAE3134DD/main.js" charset="UTF-8"></script><script lang="Javascript">
+            <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/A0C9933E-5AE7-3147-B64F-A34FAE3134DD/main.js" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/A0C9933E-5AE7-3147-B64F-A34FAE3134DD/main.js" charset="UTF-8"></script><script lang="Javascript">
                 var studentNames = [];
                 var studentDisplayed = [];
                 var menu = document.getElementById("myList");
@@ -30,7 +36,7 @@
                     }
                 }
                 var count = 0 ;
-                document.getElementById("button").innerHTML = count;
+                document.getElementById("button").value = count;
                 generateData(event);
                 function setArrays10() {
                     studentNames = ["Adriana","Allan","Luca","Myro","JJ","JM","Dinis",
@@ -39,7 +45,7 @@
                  studentDisplayed = [false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false];
                  count = studentNames.length;
-                document.getElementById("button").innerHTML = count;
+                 document.getElementById("button").value = count;
                 }
                 function setArrays9() {
                     studentNames = ["Luca","Elliot","Adam","Sam","Pedro","Guilherme","Bernado","Sarah",
@@ -49,7 +55,7 @@
                  false,false,false,false,false,
                  false,false,false,false,false,false,false,false,false,false,false,];
                  count = studentNames.length;
-                document.getElementById("button").innerHTML = count;
+                 document.getElementById("button").value = count;
                 }
                 function setNames() {
                     do {
@@ -58,7 +64,7 @@
                         studentDisplayed[randomNumber] = true;
                         document.getElementById("test").innerHTML = studentNames[randomNumber];
                         count--;
-                        document.getElementById("button").innerHTML = count;
+                        document.getElementById("button").value = count;
                         console.log(studentDisplayed)
                         console.log(studentNames[randomNumber])
                         console.log(count)
