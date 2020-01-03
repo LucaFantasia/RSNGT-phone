@@ -1,31 +1,89 @@
 <!DOCTYPE html>
     <html>
+        <title>RSNGT</title>
         <head>
             <meta content='width=device-width, initial-scale=1' name='viewport'/>
-        <title> RSNGT phone</title>
-        <body style="background-color:#f2f2f2">
             <style>
-                .height {
-                    height:23px
+                .background{
+                    background-color:rgb(185, 185, 185);
                 }
-                input[type=button] {
-                    width:35px;
-                    height:23px;
+                .question{
+                    width:68px
+                }
+                .border{
+                    padding: 10px;
+                    border: 1px solid black;
+                    border-collapse: collapse
+                }
+                .color1{
+                    color: rgb(0, 96, 152)
+                }
+                .color2{
+                    color: rgb(246, 191, 53)
+                }
+                .color3{
+                    color: rgb(96, 189, 172)
+                }
+                .button{
+                    height:45px;
+                    width:150px;
                 }
             </style>
+        </head>
+        <body class="background">
             <table>
                 <tr>
-                    <td><input type="button" name="button1" class="search" id="button" onclick="setNames()"></td>
-                    <td><img src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/screenshot02.png" alt="question-mark" align="top"></td>
-                    <td><select style="height:23px" id = "myList">
-                        <option value = "10"selected>10</option>
-                        <option value = "9">9</option>
-                        </select></td>
-                    <td><img src="https://raw.githubusercontent.com/LucaFantasia/RSNGT/master/images/screenshot03.png" alt="question-mark" align="top"></td>
+                    <td><h1 style="font-family:monospace" class="color1">Random</h1></td>
+                    <td> </td>
+                    <td><h1 style="font-family:monospace" class="color2">Student</h1></td>
+                    <td> </td>
+                    <td><h1 style="font-family:monospace" class="color3">Name</h1></td>
+                    <td> </td>
+                    <td><h1 style="font-family:monospace" class="color1">Generator</h1></td>
                 </tr>
-            </table>       
-            <b><div style="font-size: 35px" id="test">Ready playerone</div></b>
-            <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/A0C9933E-5AE7-3147-B64F-A34FAE3134DD/main.js" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/A0C9933E-5AE7-3147-B64F-A34FAE3134DD/main.js" charset="UTF-8"></script><script lang="Javascript">
+            </table>
+            <table>
+                <td>
+                    <table>
+                        <tr>
+                        <td><select style="background-color: rgb(96, 189, 172);" class="question" style="height:23px" id = "myList">
+                            <option value = "10"selected>10</option>
+                            <option value = "9">9</option>
+                            </select>
+                        </tr>
+                        <tr>
+                        <td><input style="background-color: rgb(246, 191, 53);" class="question" type="button" value="?"></td> 
+                        </tr>
+                        <tr>
+                            <td><input type="radio" ><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Absent</b></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"><b style="color: rgb(0, 96, 152); font-family:monospace,bold">Top</b></td>
+                        </tr>
+                        <tr>
+                            <td><input style="background-color:rgb(96, 189, 172);" class="question" type="button" value=">>"></td>
+                        </tr>
+                </table>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td style="color:rgb(185, 185, 185)">ee</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td><h1 style="font-family:monospace" id="test">Ready Playerone</h1></td>
+                        </tr>
+                        <tr>
+                            <td><input style="background-color:rgb(246, 191, 53)" class="button" type="button" name="button1" class="search" id="button" onclick="setNames()"></td>
+                        </tr>
+                    </table>
+                </td>
+            </table>
+            <script type="text/javascript">
                 var studentNames = [];
                 var studentDisplayed = [];
                 var menu = document.getElementById("myList");
@@ -59,6 +117,7 @@
                  count = studentNames.length;
                  document.getElementById("button").value = count;
                 }
+                
                 function setNames() {
                     do {
                         var randomNumber = Math.floor(Math.random() * studentNames.length);
