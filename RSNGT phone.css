@@ -1,0 +1,24 @@
+.background{
+    background-color:rgb(185, 185, 185);
+}
+.question{
+    width:68px
+}
+.border{
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse
+}
+.color1{
+    color: rgb(0, 96, 152)
+}
+.color2{
+    color: rgb(246, 191, 53)
+}
+.color3{
+    color: rgb(96, 189, 172)
+}
+.button{
+    height:45px;
+    width:150px;
+}
