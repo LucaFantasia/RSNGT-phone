@@ -1,24 +1,53 @@
-.background{
-    background-color:rgb(185, 185, 185);
+table{
+    border:1px solid black;
+    border-collapse: collapse;
+    height:100%;
+    width:100%;
 }
-.question{
-    width:68px
+th,tr,td{
+    border:1px solid black;
+    border-collapse: collapse;
 }
-.border{
-    padding: 10px;
-    border: 1px solid black;
-    border-collapse: collapse
+div{
+    text-align:center;
+    font-size:100px;
 }
-.color1{
-    color: rgb(0, 96, 152)
+.sideButton{
+    height:100%;
+    width:35px;
+
 }
-.color2{
-    color: rgb(246, 191, 53)
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
-.color3{
-    color: rgb(96, 189, 172)
+.sidenav a:hover {
+    color: #f1f1f1;
 }
-.button{
-    height:45px;
-    width:150px;
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.sideNav{
+    height:100%;
+    width:0px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
 }
