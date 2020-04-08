@@ -1,50 +1,56 @@
-var studentNames = [];
-var studentDisplayed = [];
-var menu = document.getElementById("myList");
-menu.addEventListener("change", generateData);
-function generateData(event) {
-    if (menu.value == '10') {
-        setArrays10();
-    } else if (menu.value == '9') {
-        setArrays9();
+var studentNames;
+var studentDisplay;
+var randomNumber;
+var count;
+var randomSampling = document.getElementById("randomSampling");
+var year10;
+var year09;
+var countDisplay;
+document.getElementById("year10").addEventListener("click", function() {
+    year10 = true;
+    year09 = false;
+    generateData();
+    randomSampling.innerHTML = "Year10";
+});
+document.getElementById("year09").addEventListener("click", function() {
+    year10 = false;
+    year09 = true;
+    generateData();
+    randomSampling.innerHTML = "Year09";
+});
+function generateData() {
+    if(year10 === true) {
+        studentNames = ["Adriana", "Afonso", "Allan", "Carolina", "Cecilia", "Dinis", "Holly", "JJ",
+            "JM", "Laura", "Luca", "Luna", "Maria", "Miguel", "Myro", "Sandro",
+            "Sebastian", "Sofia F", "Sofia G", "Tian", "Tilly"];
+        studentDisplayed = [false, false, false, false, false, false, false, false, false, false,
+            false, false, false, false, false, false, false, false, false, false, false];
+        count = studentNames.length;
+    } else if(year09 === true) {
+        studentNames = ["Adam", "Amelia", "Anais", "Beatriz", "Bernado", "Catarina", "Daniela", "Elliot", "Emily", "Guilherme",
+            "Kiana", "Lauren", "Lena", "Luca", "Luisa", "Maria", "Mariana", "Pedro", "Sam", "Sarah", "Sofia A", "Sofia C", "Sofia M",
+            "Tarushi"];
+        studentDisplayed = [false, false, false, false, false, false, false, false,
+            false, false, false, false, false,
+            false, false, false, false, false, false, false, false, false, false, false];
+            count = studentNames.length;
     }
 }
-var count = 0;
-document.getElementById("button").value = count;
-generateData(event);
-function setArrays10() {
-    studentNames = ["Adriana", "Allan", "Luca", "Myro", "JJ", "JM", "Dinis",
-        "Tilly", "Laura", "Carolina", "Luna", "Afonso", "Cecilia",
-        "Sofia F", "Sofia G", "Sebastian", "Holly", "Sandro", "Tian", "Miguel", "Maria"];
-    studentDisplayed = [false, false, false, false, false, false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false, false];
-    count = studentNames.length;
-    document.getElementById("button").value = count;
+function openNav() {
+    document.getElementById("sideNav").style.width = "250px";
 }
-function setArrays9() {
-    studentNames = ["Luca", "Elliot", "Adam", "Sam", "Pedro", "Guilherme", "Bernado", "Sarah",
-        "Mariana", "Daniela", "Anais", "Beatriz", "Emily", "Tarushi", "Lauren",
-        "Sofia C", "Luisa", "Kiana", "Lena", "Sofia M", "Amelia", "Sofia A", "Catarina", "Maria"];
-    studentDisplayed = [false, false, false, false, false, false, false, false,
-        false, false, false, false, false,
-        false, false, false, false, false, false, false, false, false, false, false,];
-    count = studentNames.length;
-    document.getElementById("button").value = count;
+function closeNav() {
+    document.getElementById("sideNav").style.width = "0px";
 }
-
-function setNames() {
+function nameDisplay() {
     do {
-        var randomNumber = Math.floor(Math.random() * studentNames.length);
+        randomNumber = Math.floor(Math.random() * studentNames.length);
     } while (studentDisplayed[randomNumber] == true);
     studentDisplayed[randomNumber] = true;
-    document.getElementById("test").innerHTML = studentNames[randomNumber];
     count--;
-    document.getElementById("button").value = count;
-    console.log(studentDisplayed)
-    console.log(studentNames[randomNumber])
-    console.log(count)
-    if (count == 0) {
-        generateData(event);
+    randomSampling.innerHTML = studentNames[randomNumber] + "<sup>" + count + "</sup>";
+    if(count == 0) {
+        generateData();
         return;
     }
 }
